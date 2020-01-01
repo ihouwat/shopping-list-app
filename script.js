@@ -20,10 +20,15 @@ function inputLength() {
 // Add Delete button
 function addDeleteButton(elem) {
   if(elem.parentElement !== completedList) {
-    var deleteButton = document.createElement('button');
-    deleteButton.appendChild(document.createTextNode('X'));
+    var deleteButton = document.createElement('img');
+    deleteButton.setAttribute('src', 'assets/red-bin.png')
+    deleteButton.setAttribute('class', 'recycleBin')
     elem.appendChild(deleteButton);
     deleteButton.addEventListener('click', removeItem);
+    // var deleteButton = document.createElement('button');
+    // deleteButton.appendChild(document.createTextNode('X'));
+    // elem.appendChild(deleteButton);
+    // deleteButton.addEventListener('click', removeItem);
   }
 }
 
