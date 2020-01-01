@@ -2,7 +2,14 @@
 <html>
 <head>
 	<title>Shopping list</title>
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <!--Stylesheet-->
 	<link rel="stylesheet" type="text/css" href="style.css">
+	
+	<!--Google font-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -10,23 +17,24 @@
 	<p id="first">Get it done today</p>
 	<input id="userinput" type="text" placeholder="enter items">
 	<button id="enter">Enter</button>
-	<div class="category">
-	  <p>Test</p>
-  	<ul>
-  		<li class="bold red" random="23">Notebook</li>
-  		<li>Jello</li>
-  		<li>Spinach</li>
-  	</ul>
-	</div>
-	<div style="display: none;">
-	  <p>Produce</p>
-	  <ul>
-	    <li>Test</li>
-	    <li>Test</li>
-	    <li>Test</li>
-	  </ul>
-    
-  </div>
+	<section id="active">
+  	<div class="category">
+  	  <p>Test</p>
+    	<ul>
+    		<li class="bold red" random="23">Notebook</li>
+    		<li>Jello</li>
+    		<li>Spinach</li>
+    	</ul>
+  	</div>
+	</section>
+	<section id="completed">
+  	<div class="category">
+  	  <p>Completed<button class="delete">X</button></p>
+    	  <ul>
+  	    <li>Test</li>
+  	  </ul>
+    </div>
+  </section>
 	<script type="text/javascript" src="script.js"></script>
 </body>
 </html>
