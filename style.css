@@ -1,6 +1,10 @@
-body {
-    width: 100;
+body,
+html {
+    width: 100%;
+    height: 100%;
+    margin: 16px;
     font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
 }
 
 /*Completed items*/
@@ -30,9 +34,15 @@ ul li {
 }
 
 
-ul button {
+button.delete, ul button {
     background-color: red;
     color: white;
     font-size: 0.5rem;
     margin-left: 8px;
+}
+
+/*Completed category list styles*/
+section#completed li {
+  color: #7b7b7b;
+  text-decoration: line-through;
 }
