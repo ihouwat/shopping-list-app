@@ -1,9 +1,9 @@
 //Caching elements we need
 let button = document.getElementById('enter');
 let input = document.getElementById('userinput');
-let ul = document.querySelector('ul');
 let listItems = document.getElementsByTagName('li');
-let list = document.querySelectorAll('div.category ul'); // creates Nodelist
+let activeList = document.querySelector('#active div.category ul'); // creates Nodelist
+let completedList = document.querySelector('#completed div.category ul')
 
 // Starting list
 for (i = 0; i < listItems.length; i++) {
@@ -17,21 +17,25 @@ function inputLength() {
 
 // Add Delete button
 function addDeleteButton(elem) {
+  if(elem.parentElement !== completedList) {
     var deleteButton = document.createElement('button');
     deleteButton.appendChild(document.createTextNode('X'));
     elem.appendChild(deleteButton);
     deleteButton.addEventListener('click', removeItem);
+  }
 }
 
-function createListElement() {
+function createListElement(category, item) {
 	// create element
 	var li = document.createElement('li');
 	//createTextNode is the text element within the tag (how DOM works)
-	li.appendChild(document.createTextNode(input.value));
-    // Add delete button to new elements
-  addDeleteButton(li);
-	// Attach to existing ul so it appears on the page
-	ul.appendChild(li);
+	li.appendChild(document.createTextNode(item));
+  // Add delete button to new elements, except on completedList
+  if(category !== completedList){
+    addDeleteButton(li);
+  }
+	// Attach to category's  ul so it appears on the page
+	category.appendChild(li);
 	// If the parent grocery category is empty/hidden, it becomes visible
 	toggleListDisplay();
 	//Clears the input area
@@ -41,7 +45,7 @@ function createListElement() {
 function addListAfterClick() {
 	//Make sure the input value is not empty
 	if (inputLength() > 0) {
-		createListElement();
+		createListElement(activeList, input.value);
 	}
 }
 
@@ -50,26 +54,24 @@ function addListAfterClick() {
 function addListAfterKeypress(event) {
 		// Event.keycode looks for keypress. #13 is the enter button
 		if (inputLength() > 0 && event.keyCode === 13) {
-			createListElement();
+			createListElement(activeList, input.value);
 		}
 }
 
 // Toggle .done class on click
 function removeItem() {
-  // Create list of complete items
-  completedList = [];
-  completedList.push(this.parentElement.textContent);
+  createListElement(completedList, this.parentElement.textContent);
 	this.parentElement.remove();
 	toggleListDisplay();
 }
 
 // If ul empty, hide grocery category
 function toggleListDisplay() {
-  for(i=0; i < list.length; i++){
-    if (list[i].childElementCount === 0) {
-      list[i].parentElement.classList.add('hide');
+  for(i=0; i < activeList.length; i++){
+    if (activeList[i].childElementCount === 0) {
+      activeList[i].parentElement.classList.add('hide');
     } else {
-      list[i].parentElement.classList.remove('hide')
+      activeList[i].parentElement.classList.remove('hide')
     }
   }
 }
@@ -78,3 +80,7 @@ function toggleListDisplay() {
 button.addEventListener('click', addListAfterClick);
 // If "enter" key pressed, run the function
 input.addEventListener('keypress', addListAfterKeypress);
+// If any categories empty, they do not display on document load
+document.addEventListener('DOMContentLoaded', (event) => {
+    toggleListDisplay();
+});
