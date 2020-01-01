@@ -2,9 +2,44 @@ body,
 html {
     width: 100%;
     height: 100%;
-    margin: 16px;
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.9rem;
+    margin: 0px;
+    background-color: #fafafa;
+}
+
+/*Top container spans entire body*/
+.topContainer {
+  background-color: #ffffff;
+  padding-bottom: 8px;
+}
+
+/*Header section with grocery store names*/
+.header {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.header h1 {
+  margin: 0;
+  padding: 0.67em 0;
+}
+
+/*Shopping list*/
+.shoppingList {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  margin-top: 16px;
+  margin-bottom: 64px;
+}
+
+/*Input area*/
+.inputArea {
+  height: 50px;
+  border-bottom: 1px solid rgb(221, 221, 221);
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
 }
 
 /*Completed items*/
@@ -17,23 +52,68 @@ html {
   display: none;
 }
 
+/*Adding border bottom to grocery categories, except in completed list*/
+section:not(:last-child) div.category{
+  border-bottom: 1px solid rgb(221, 221, 221);
+
+}
 /*Grocery category title*/
 div.category p {
   font-weight: bold;
+  padding: 0 16px;
 }
 
 /*List style*/
 ul {
   list-style: none;
   padding: 0px;
+  margin: 0px;
 }
 
 /*Bullet point styles*/
-ul li {
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   text-transform: capitalize;
+  padding: 0 16px;
+  height: 72px;
+}
+
+li:hover > .recycleBin {
+  animation-name: appear;
+}
+
+li:hover {
+  animation-name: backgroundColor;
+  animation-duration: 0.2s;
+  animation-fill-mode: forwards;
 }
 
 
+@keyframes appear {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes backgroundColor {
+  to {
+    background-color: #f4f6ff;
+  }
+}
+
+.recycleBin {
+  width: 32px;
+  height: 32px;
+  margin-left: 8px;
+  opacity: 0;
+  animation-duration: 0.4s;
+  animation-fill-mode: forwards;
+  cursor: pointer;
+}
+
+/*Empty button on completed list*/
 button.delete, ul button {
     background-color: red;
     color: white;
