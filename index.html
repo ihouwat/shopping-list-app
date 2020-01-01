@@ -12,29 +12,46 @@
 	<!--Google font-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat&amp;display=swap" rel="stylesheet">
 </head>
+
 <body>
-	<h1>Shopping List</h1>
-	<p id="first">Get it done today</p>
-	<input id="userinput" type="text" placeholder="enter items">
-	<button id="enter">Enter</button>
-	<section id="active">
-  	<div class="category">
-  	  <p>Test</p>
-    	<ul>
-    		<li class="bold red" random="23">Notebook</li>
-    		<li>Jello</li>
-    		<li>Spinach</li>
-    	</ul>
+  <div class="topContainer">
+    <div class="header">
+    	<h1>Shopping List</h1>
+    	<p id="first">Grocery store</p>
   	</div>
-	</section>
-	<section id="completed">
-  	<div class="category">
-  	  <p>Completed<button class="delete">Empty</button></p>
-    	  <ul>
-  	    <li>Test</li>
-  	  </ul>
-    </div>
-  </section>
+	</div>
+	<div class="shoppingList">
+	  <div class="inputArea">
+  	  <input id="userinput" type="text" placeholder="Add item">
+  	  <button id="enter">Enter</button>
+  	  <form name="grocerystore">
+  	    <select name="stores">
+  	      <option value="default">Default</option>
+  	      <option value="freshthyme">Fresh Thyme</option>
+  	      <option value="meijer">Meijer</option>
+  	      <option value="kroger">Kroger</option>
+  	    </select>
+  	  </form>
+  	</div>
+  	<section id="active">
+    	<div class="category">
+    	  <p>Test</p>
+      	<ul>
+      		<li class="bold red" random="23">Notebook</li>
+      		<li>Jello</li>
+      		<li>Spinach</li>
+      	</ul>
+    	</div>
+  	</section>
+  	<section id="completed">
+    	<div class="category">
+    	  <p>Completed<button class="delete">Empty</button></p>
+      	  <ul>
+    	    <li>Test</li>
+    	  </ul>
+      </div>
+    </section>
+  </div>
 	<script type="text/javascript" src="script.js"></script>
 </body>
 </html>
