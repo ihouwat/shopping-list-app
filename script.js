@@ -1,8 +1,11 @@
 //Caching elements we need
 let button = document.getElementById('enter');
 let input = document.getElementById('userinput');
+let selectStore = document.querySelector('select')
 let listItems = document.getElementsByTagName('li');
 let activeList = document.querySelector('#active div.category ul');
+let topBanner = document.querySelector('#topBanner');
+let storeName = document.querySelector('#storename')
 // Completed list
 let clearCompletedButton = document.querySelector( '#completed button' );
 let completedList = document.querySelector('#completed div.category ul');
@@ -89,12 +92,22 @@ function toggleListDisplay(list) {
   }
 }
 
+// Top banner changes store name and banner color
+function changeStore(event) {
+  value = event.target.value;
+  label = event.target.selectedOptions[0].label;
+  topBanner.className = value;
+  storeName.textContent = label;
+}
+
 // If button clicked, run the function
 button.addEventListener('click', addListAfterClick);
 // If "enter" key pressed, run the function
 input.addEventListener('keypress', addListAfterKeypress);
 // If "Empty" button clicked, run the function
 clearCompletedButton.addEventListener('click', clearCompleted);
+// If dropdown used, run the function
+selectStore.addEventListener('change', changeStore);
 // If any categories empty, they do not display on document load
 document.addEventListener('DOMContentLoaded', (event) => {
     toggleListDisplay(activeList);
