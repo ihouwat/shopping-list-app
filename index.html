@@ -14,22 +14,23 @@
 </head>
 
 <body>
-  <div class="topContainer">
+  <div id="topBanner" class="defaultBanner">
     <div class="header">
     	<h1>Shopping List</h1>
-    	<p id="first">Grocery store</p>
+    	<p id="storename">Default</p>
   	</div>
 	</div>
 	<div class="shoppingList">
 	  <div class="inputArea">
+	    <button id="enter">+</button>
   	  <input id="userinput" type="text" placeholder="Add item">
-  	  <button id="enter">Enter</button>
   	  <form name="grocerystore">
   	    <select name="stores">
-  	      <option value="default">Default</option>
-  	      <option value="freshthyme">Fresh Thyme</option>
-  	      <option value="meijer">Meijer</option>
-  	      <option value="kroger">Kroger</option>
+  	      <option label="Default" value="defaultBanner">Default</option>
+  	      <option label="Fresh Thyme" value="freshthyme">Fresh Thyme</option>
+  	      <option label="Meijer E. Lansing" value="meijer">Meijer</option>
+  	      <option label="Meijer Okemos" value="meijer">Meijer</option>
+  	      <option label="Kroger" value="kroger">Kroger</option>
   	    </select>
   	  </form>
   	</div>
