@@ -8,9 +8,29 @@ html {
 }
 
 /*Top container spans entire body*/
-.topContainer {
-  background-color: #ffffff;
+#topBanner {
   padding-bottom: 8px;
+  transition-duration: 0.4s;
+  transition-property: background-color, color;
+}
+
+.defaultBanner {
+  background-color: #ffffff;
+}
+
+.meijer {
+  background-color: #dd1321;
+  color: #ffffff;
+}
+
+.kroger {
+  background-color: #0468B3;
+  color: #ffffff;
+}
+
+.freshthyme {
+  background-color: #00853F;
+  color: #ffffff;
 }
 
 /*Header section with grocery store names*/
@@ -35,11 +55,50 @@ html {
 
 /*Input area*/
 .inputArea {
-  height: 50px;
-  border-bottom: 1px solid rgb(221, 221, 221);
   display: flex;
+  flex-flow: row wrap;
   align-items: center;
   padding: 0 16px;
+  height: 75px;
+  border-bottom: 1px solid rgb(221, 221, 221);
+}
+
+.inputArea input {
+  flex-grow: 1;
+  border: none;
+  height: 36px;
+  margin-left: 16px;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.inputArea button {
+  background: #ffffff;
+  border: 0px;
+  font-size: 1.75rem;
+  height: 36px;
+  color: #393939;
+  cursor: pointer;
+}
+
+.inputArea form {
+  margin-left: 24px;
+}
+
+.inputArea form select {
+  font-family: inherit;
+  height: 32px;
+  padding: 2px;
+  background-color: #ffffff;
+  border-color: #393939;
+  border-width: 1.5px;
+  transition-duration: 0.3s;
+  cursor: pointer;
+}
+
+.inputArea form select:hover, .inputArea form select:focus, .inputArea form select:active {
+  background-color: #393939;
+  color: white;
 }
 
 /*Completed items*/
